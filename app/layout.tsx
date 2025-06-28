@@ -1,41 +1,23 @@
-import type React from "react";
-import "@/app/globals.css";
-import { Inter, Playfair_Display } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import type React from "react"
+import type { Metadata } from "next"
+import "./globals.css"
+import { playfair, inter, whisper } from "./fonts"
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
-
-export const metadata = {
-  title: "Velas de Evora - Velas Artesanais com Ervas Naturais",
+export const metadata: Metadata = {
+  title: "Velas de Evora - Artesanais, Naturais, Elegantes",
   description:
-    "Velas artesanais feitas com ervas naturais para transformar seu ambiente e promover bem-estar.",
-};
+    "Velas artesanais com ervas naturais e cromoterapia. Cada vela criada com propósito e energia específica.",
+  generator: "v0.dev",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable} ${whisper.variable}`}>
+      <body>{children}</body>
     </html>
-  );
+  )
 }

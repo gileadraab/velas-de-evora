@@ -4,65 +4,26 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 0 0% 24%;
-
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 24%;
-
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 24%;
-
-    --primary: 280 20% 53%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 120 12% 54%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 36 33% 91%;
-    --muted-foreground: 0 0% 40%;
-
-    --accent: 36 33% 91%;
-    --accent-foreground: 0 0% 24%;
-
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 36 33% 88%;
-    --input: 36 33% 88%;
-    --ring: 280 20% 53%;
-
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 0 0% 12%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 280 20% 53%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 120 12% 54%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
-
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 280 20% 53%;
   }
 }
 
@@ -73,11 +34,66 @@
   body {
     @apply bg-background text-foreground;
   }
-  .font-serif {
-    font-family: var(--font-serif);
-  }
 }
 
+/* Custom font classes */
+.font-serif {
+  font-family: var(--font-playfair), serif;
+}
+
+.font-script {
+  font-family: var(--font-whisper), cursive;
+}
+
+.font-sans {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Enhanced interactive elements */
+button,
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a8a29e;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #78716c;
+}
+
+/* Accessibility focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #78716c;
+  outline-offset: 2px;
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
