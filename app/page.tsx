@@ -1,61 +1,85 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { MessageCircle, Instagram, Heart, Clock, Gift, Leaf, ChevronDown, ArrowUp, Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  MessageCircle,
+  Instagram,
+  Heart,
+  Clock,
+  Gift,
+  Leaf,
+  ChevronDown,
+  ArrowUp,
+  Menu,
+  X,
+} from "lucide-react";
 
 export default function VelasDeEvora() {
   // State management for UI interactions
-  const [showBackToTop, setShowBackToTop] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
-  const [showAllProducts, setShowAllProducts] = useState(false)
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [showAllProducts, setShowAllProducts] = useState(false);
 
   // Scroll event handler for navigation and back-to-top button
   useEffect(() => {
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500)
+      setShowBackToTop(window.scrollY > 500);
 
       // Update active navigation section based on scroll position
-      const sections = ["home", "products", "benefits", "colors", "herbs", "personalize", "instagram"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "home",
+        "products",
+        "benefits",
+        "colors",
+        "herbs",
+        "personalize",
+        "instagram",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Navigation utilities
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setMobileMenuOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
     }
-  }
+  };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   // WhatsApp integration
-  const openWhatsApp = (message = "Olá! Gostaria de saber mais sobre as velas de Evora.") => {
-    const encodedMessage = encodeURIComponent(message)
-    window.open(`https://wa.me/5511999999999?text=${encodedMessage}`, "_blank")
-  }
+  const openWhatsApp = (
+    message = "Olá! Gostaria de saber mais sobre as velas de Evora.",
+  ) => {
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/5511999999999?text=${encodedMessage}`, "_blank");
+  };
 
   // Navigation menu items
   const navigationItems = [
@@ -66,7 +90,7 @@ export default function VelasDeEvora() {
     { id: "herbs", label: "Ervas" },
     { id: "personalize", label: "Personalizar" },
     { id: "instagram", label: "Instagram" },
-  ]
+  ];
 
   // Product catalog data
   const featuredProducts = [
@@ -75,23 +99,23 @@ export default function VelasDeEvora() {
       benefit: "Limpa energias pesadas e oferece proteção",
       herbs: "Endro, Arruda",
       colors: ["#FFFFFF", "#000000", "#8B4513"],
-      image: "/placeholder.svg?height=400&width=400",
+      image: "images/banimento.png",
     },
     {
       name: "Conectar",
       benefit: "Clareia a mente e melhora a concentração",
       herbs: "Pitanga, Tomilho",
       colors: ["#FFFFFF", "#DDA0DD", "#FFFF00", "#0000FF"],
-      image: "/placeholder.svg?height=400&width=400",
+      image: "images/conectar.png",
     },
     {
       name: "Paixão",
       benefit: "Desperta o coração e atrai o amor",
       herbs: "Lavanda, Artemísia",
       colors: ["#FFFFFF", "#FFC0CB"],
-      image: "/placeholder.svg?height=400&width=400",
+      image: "images/paixao.png",
     },
-  ]
+  ];
 
   const additionalProducts = [
     {
@@ -99,39 +123,79 @@ export default function VelasDeEvora() {
       benefit: "Abre caminhos e traz esperança",
       herbs: "Calêndula, Dente-de-Leão",
       colors: ["#FFFFFF", "#FFFF00", "#008000"],
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/images/esperanca.png",
     },
     {
       name: "Restaurar",
       benefit: "Acalma a alma e restaura energias",
       herbs: "Cipreste, Pinheiro",
       colors: ["#FFFFFF", "#0000FF"],
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/images/restaurar.png",
     },
     {
       name: "Purificar",
       benefit: "Renova energias e purifica ambientes",
       herbs: "Hibisco, Sal Vulcânico",
       colors: ["#FFFFFF", "#DDA0DD", "#000000"],
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/images/purificar.png",
     },
-  ]
+  ];
 
   // Educational content about herbs
   const herbs = [
-    { name: "Lavanda", description: "Atrai amor, cura e harmonia. Potencializa rituais diversos" },
-    { name: "Alecrim", description: "Proteção, purificação e cura. Equilibra energias física e mental" },
-    { name: "Arruda", description: "Elimina larvas astrais e energias densas. Purifica ambientes" },
-    { name: "Endro", description: "Proteção contra encantamentos. Atrai sorte e amor" },
-    { name: "Pitanga", description: "Energia movimentadora. Elimina comodismo e estagnação" },
-    { name: "Tomilho", description: "Atrai amor e saúde. Melhora clareza mental e facilita diálogos" },
-    { name: "Artemísia", description: "Desenvolve intuição. Conexão com o sagrado feminino" },
-    { name: "Cipreste", description: "Combate tristeza e mágoas. Ajuda no reequilíbrio mental" },
-    { name: "Hibisco", description: "Purifica coração, mente e alma. Elimina vícios e manias" },
-    { name: "Calêndula", description: "Flor da riqueza. Traz proteção, sorte financeira e prosperidade" },
-    { name: "Dente de Leão", description: "Representa esperança e liberdade. Abertura de caminhos" },
-    { name: "Sal Vulcânico", description: "Combate energias densas. Elimina pensamentos negativos" },
-  ]
+    {
+      name: "Lavanda",
+      description: "Atrai amor, cura e harmonia. Potencializa rituais diversos",
+    },
+    {
+      name: "Alecrim",
+      description:
+        "Proteção, purificação e cura. Equilibra energias física e mental",
+    },
+    {
+      name: "Arruda",
+      description:
+        "Elimina larvas astrais e energias densas. Purifica ambientes",
+    },
+    {
+      name: "Endro",
+      description: "Proteção contra encantamentos. Atrai sorte e amor",
+    },
+    {
+      name: "Pitanga",
+      description: "Energia movimentadora. Elimina comodismo e estagnação",
+    },
+    {
+      name: "Tomilho",
+      description:
+        "Atrai amor e saúde. Melhora clareza mental e facilita diálogos",
+    },
+    {
+      name: "Artemísia",
+      description: "Desenvolve intuição. Conexão com o sagrado feminino",
+    },
+    {
+      name: "Cipreste",
+      description: "Combate tristeza e mágoas. Ajuda no reequilíbrio mental",
+    },
+    {
+      name: "Hibisco",
+      description: "Purifica coração, mente e alma. Elimina vícios e manias",
+    },
+    {
+      name: "Calêndula",
+      description:
+        "Flor da riqueza. Traz proteção, sorte financeira e prosperidade",
+    },
+    {
+      name: "Dente de Leão",
+      description: "Representa esperança e liberdade. Abertura de caminhos",
+    },
+    {
+      name: "Sal Vulcânico",
+      description: "Combate energias densas. Elimina pensamentos negativos",
+    },
+  ];
 
   // Benefits/features of the candles
   const benefits = [
@@ -155,15 +219,40 @@ export default function VelasDeEvora() {
       title: "Presentes Únicos",
       description: "Perfeitas para ocasiões especiais",
     },
-  ]
+  ];
 
   // Color meanings for chromotherapy
   const colorMeanings = [
-    { color: "bg-purple-400", name: "Roxo", meaning: "Serenidade", description: "Promove relaxamento e paz interior" },
-    { color: "bg-green-400", name: "Verde", meaning: "Energia", description: "Estimula vitalidade e renovação" },
-    { color: "bg-red-400", name: "Vermelho", meaning: "Paixão", description: "Desperta amor e força interior" },
-    { color: "bg-blue-400", name: "Azul", meaning: "Tranquilidade", description: "Acalma a mente e promove clareza" },
-    { color: "bg-yellow-400", name: "Amarelo", meaning: "Alegria", description: "Estimula criatividade e otimismo" },
+    {
+      color: "bg-purple-400",
+      name: "Roxo",
+      meaning: "Serenidade",
+      description: "Promove relaxamento e paz interior",
+    },
+    {
+      color: "bg-green-400",
+      name: "Verde",
+      meaning: "Energia",
+      description: "Estimula vitalidade e renovação",
+    },
+    {
+      color: "bg-red-400",
+      name: "Vermelho",
+      meaning: "Paixão",
+      description: "Desperta amor e força interior",
+    },
+    {
+      color: "bg-blue-400",
+      name: "Azul",
+      meaning: "Tranquilidade",
+      description: "Acalma a mente e promove clareza",
+    },
+    {
+      color: "bg-yellow-400",
+      name: "Amarelo",
+      meaning: "Alegria",
+      description: "Estimula criatividade e otimismo",
+    },
     {
       color: "bg-stone-100 border-2 border-stone-300",
       name: "Branco",
@@ -188,7 +277,7 @@ export default function VelasDeEvora() {
       meaning: "Proteção",
       description: "Absorve energias negativas e oferece proteção",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -232,7 +321,11 @@ export default function VelasDeEvora() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-stone-600 hover:text-stone-800 p-2"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
             </div>
           </div>
@@ -270,7 +363,10 @@ export default function VelasDeEvora() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
+      >
         {/* Background Image */}
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vecteezy_vibrant-arrangement-of-dried-herbs-and-flowers-in-wooden_60377691.jpg-4EvRwFpTiemEWFSja93czv3g02hWib.jpeg"
@@ -391,7 +487,9 @@ export default function VelasDeEvora() {
           {/* Brand Name */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-stone-800 mb-6 sm:mb-8 leading-tight font-light mt-[-50px]">
             Velas de
-            <span className="block text-stone-700 font-script text-5xl sm:text-6xl md:text-8xl font-normal">Evora</span>
+            <span className="block text-stone-700 font-script text-5xl sm:text-6xl md:text-8xl font-normal">
+              Evora
+            </span>
           </h1>
 
           {/* Brand Tagline */}
@@ -426,7 +524,8 @@ export default function VelasDeEvora() {
               Cada vela, uma intenção
             </h2>
             <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-light">
-              Descubra nossa coleção de velas artesanais, cada uma criada com propósito e energia específica
+              Descubra nossa coleção de velas artesanais, cada uma criada com
+              propósito e energia específica
             </p>
           </div>
 
@@ -445,23 +544,32 @@ export default function VelasDeEvora() {
                   />
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl sm:text-2xl font-serif text-stone-800 font-light">{product.name}</h3>
+                  <h3 className="text-xl sm:text-2xl font-serif text-stone-800 font-light">
+                    {product.name}
+                  </h3>
                   <p className="text-stone-600 font-light">{product.benefit}</p>
                   <div className="flex gap-2">
                     {product.colors.map((color, colorIndex) => (
                       <div
                         key={colorIndex}
-                        className="w-4 h-4 rounded-full border border-stone-200"
+                        className="w-4 h-4 rounded-full border border-stone-400"
                         style={{ backgroundColor: color }}
                       />
                     ))}
                   </div>
-                  <Badge variant="outline" className="text-stone-600 border-stone-300 bg-transparent font-light">
+                  <Badge
+                    variant="outline"
+                    className="text-stone-600 border-stone-300 bg-transparent font-light"
+                  >
                     <Leaf className="w-3 h-3 mr-1" />
                     {product.herbs}
                   </Badge>
                   <Button
-                    onClick={() => openWhatsApp(`Olá! Gostaria de saber mais sobre a ${product.name}.`)}
+                    onClick={() =>
+                      openWhatsApp(
+                        `Olá! Gostaria de saber mais sobre a ${product.name}.`,
+                      )
+                    }
                     className="w-full bg-stone-800 hover:bg-stone-900 text-white py-2 font-medium transition-all duration-200 hover:shadow-md"
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
@@ -485,23 +593,34 @@ export default function VelasDeEvora() {
                     />
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-xl sm:text-2xl font-serif text-stone-800 font-light">{product.name}</h3>
-                    <p className="text-stone-600 font-light">{product.benefit}</p>
+                    <h3 className="text-xl sm:text-2xl font-serif text-stone-800 font-light">
+                      {product.name}
+                    </h3>
+                    <p className="text-stone-600 font-light">
+                      {product.benefit}
+                    </p>
                     <div className="flex gap-2">
                       {product.colors.map((color, colorIndex) => (
                         <div
                           key={colorIndex}
-                          className="w-4 h-4 rounded-full border border-stone-200"
+                          className="w-4 h-4 rounded-full border border-stone-400"
                           style={{ backgroundColor: color }}
                         />
                       ))}
                     </div>
-                    <Badge variant="outline" className="text-stone-600 border-stone-300 bg-transparent font-light">
+                    <Badge
+                      variant="outline"
+                      className="text-stone-600 border-stone-300 bg-transparent font-light"
+                    >
                       <Leaf className="w-3 h-3 mr-1" />
                       {product.herbs}
                     </Badge>
                     <Button
-                      onClick={() => openWhatsApp(`Olá! Gostaria de saber mais sobre a ${product.name}.`)}
+                      onClick={() =>
+                        openWhatsApp(
+                          `Olá! Gostaria de saber mais sobre a ${product.name}.`,
+                        )
+                      }
                       className="w-full bg-stone-800 hover:bg-stone-900 text-white py-2 font-medium transition-all duration-200 hover:shadow-md"
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
@@ -526,7 +645,10 @@ export default function VelasDeEvora() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100">
+      <section
+        id="benefits"
+        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-800 mb-4 sm:mb-6 font-light">
@@ -542,8 +664,12 @@ export default function VelasDeEvora() {
                 <div className="w-16 h-16 bg-stone-200 rounded-full flex items-center justify-center mx-auto mb-6 text-stone-600 hover:bg-stone-300 transition-colors duration-200">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light">{benefit.title}</h3>
-                <p className="text-stone-600 font-light leading-relaxed">{benefit.description}</p>
+                <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light">
+                  {benefit.title}
+                </h3>
+                <p className="text-stone-600 font-light leading-relaxed">
+                  {benefit.description}
+                </p>
               </div>
             ))}
           </div>
@@ -551,7 +677,10 @@ export default function VelasDeEvora() {
       </section>
 
       {/* Color Meanings Section */}
-      <section id="colors" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100">
+      <section
+        id="colors"
+        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-800 mb-4 sm:mb-6 font-light">
@@ -561,7 +690,8 @@ export default function VelasDeEvora() {
               </span>
             </h2>
             <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-light">
-              Cada cor possui uma energia única que pode transformar seu ambiente
+              Cada cor possui uma energia única que pode transformar seu
+              ambiente
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -570,10 +700,18 @@ export default function VelasDeEvora() {
                 key={index}
                 className="bg-white rounded-lg p-6 sm:p-8 border border-stone-200 hover:shadow-md transition-shadow duration-200"
               >
-                <div className={`w-8 h-8 ${item.color} rounded-full mb-4`}></div>
-                <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light">{item.name}</h3>
-                <p className="text-stone-600 font-light font-medium">{item.meaning}</p>
-                <p className="text-sm text-stone-500 mt-2 font-light">{item.description}</p>
+                <div
+                  className={`w-8 h-8 ${item.color} rounded-full mb-4`}
+                ></div>
+                <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light">
+                  {item.name}
+                </h3>
+                <p className="text-stone-600 font-light font-medium">
+                  {item.meaning}
+                </p>
+                <p className="text-sm text-stone-500 mt-2 font-light">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -591,7 +729,8 @@ export default function VelasDeEvora() {
               </span>
             </h2>
             <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-light">
-              Cada erva em nossas velas foi cuidadosamente selecionada por seus benefícios específicos.
+              Cada erva em nossas velas foi cuidadosamente selecionada por seus
+              benefícios específicos.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -600,8 +739,12 @@ export default function VelasDeEvora() {
                 key={index}
                 className="bg-white rounded-lg p-6 sm:p-8 border border-stone-200 hover:shadow-md transition-shadow duration-200"
               >
-                <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light capitalize">{herb.name}</h3>
-                <p className="text-stone-600 font-light leading-relaxed">{herb.description}</p>
+                <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light capitalize">
+                  {herb.name}
+                </h3>
+                <p className="text-stone-600 font-light leading-relaxed">
+                  {herb.description}
+                </p>
               </div>
             ))}
           </div>
@@ -609,17 +752,26 @@ export default function VelasDeEvora() {
       </section>
 
       {/* Personalization Section */}
-      <section id="personalize" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100">
+      <section
+        id="personalize"
+        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100"
+      >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-800 mb-4 sm:mb-6 font-light">
             Crie a sua
-            <span className="block text-stone-700 font-script text-4xl sm:text-5xl md:text-6xl font-normal">Magia</span>
+            <span className="block text-stone-700 font-script text-4xl sm:text-5xl md:text-6xl font-normal">
+              Magia
+            </span>
           </h2>
           <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-light mb-8 sm:mb-12">
             Escolha duas ervas, uma cor e deixe a magia acontecer
           </p>
           <Button
-            onClick={() => openWhatsApp("Olá! Gostaria de criar uma vela personalizada. Podem me ajudar?")}
+            onClick={() =>
+              openWhatsApp(
+                "Olá! Gostaria de criar uma vela personalizada. Podem me ajudar?",
+              )
+            }
             className="bg-stone-800 hover:bg-stone-900 text-white px-8 py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
             size="lg"
           >
@@ -639,13 +791,18 @@ export default function VelasDeEvora() {
                 Jornada
               </span>
             </h2>
-            <p className="text-base sm:text-lg text-stone-600 mb-6 sm:mb-8 font-light">@velasdeevora</p>
+            <p className="text-base sm:text-lg text-stone-600 mb-6 sm:mb-8 font-light">
+              @velasdeevora
+            </p>
           </div>
 
           {/* Instagram Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="aspect-square relative overflow-hidden group cursor-pointer rounded-lg">
+              <div
+                key={i}
+                className="aspect-square relative overflow-hidden group cursor-pointer rounded-lg"
+              >
                 <Image
                   src={`/placeholder.svg?height=300&width=300&query=minimalist candle instagram post ${i}`}
                   alt={`Instagram post ${i}`}
@@ -662,7 +819,9 @@ export default function VelasDeEvora() {
           {/* Instagram Follow Button */}
           <div className="text-center">
             <Button
-              onClick={() => window.open("https://instagram.com/velasdeevora", "_blank")}
+              onClick={() =>
+                window.open("https://instagram.com/velasdeevora", "_blank")
+              }
               className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
               size="lg"
             >
@@ -780,7 +939,9 @@ export default function VelasDeEvora() {
               </div>
               <h2 className="text-2xl sm:text-3xl font-serif text-stone-200 font-light px-[29px] my-[-10px]">
                 Velas de
-                <span className="block text-stone-300 font-script text-3xl sm:text-4xl font-normal">Evora</span>
+                <span className="block text-stone-300 font-script text-3xl sm:text-4xl font-normal">
+                  Evora
+                </span>
               </h2>
             </div>
           </div>
@@ -793,7 +954,11 @@ export default function VelasDeEvora() {
           {/* Footer Contact Button */}
           <div className="flex justify-center items-center mb-8 sm:mb-12">
             <Button
-              onClick={() => openWhatsApp("Olá! Gostaria de conhecer mais sobre as Velas de Evora.")}
+              onClick={() =>
+                openWhatsApp(
+                  "Olá! Gostaria de conhecer mais sobre as Velas de Evora.",
+                )
+              }
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
               size="lg"
             >
@@ -805,7 +970,8 @@ export default function VelasDeEvora() {
           {/* Copyright */}
           <div className="border-t border-stone-700 pt-6 sm:pt-8">
             <p className="text-stone-400 font-light text-sm sm:text-base">
-              © {new Date().getFullYear()} Velas de Evora. Todos os direitos reservados.
+              © {new Date().getFullYear()} Velas de Evora. Todos os direitos
+              reservados.
             </p>
           </div>
         </div>
@@ -832,5 +998,5 @@ export default function VelasDeEvora() {
         </Button>
       )}
     </div>
-  )
+  );
 }

@@ -1,0 +1,146 @@
+Please update the project with the following, everything else SHOULD NOT BE CHANGES
+
+## **Navigation Menu**
+
+- Logo: "Velas de Evora"
+- Menu items: "Início", "Produtos", "Benefícios", "Cores", Ervas, "Instagram"
+- CTA button: "Contato"
+
+
+## **Hero Section (Home)**[Keep the same]
+
+
+## **Featured Products Section**
+
+- Section title: "Crie a sua magia"
+- Description: "Escolha duas ervas, uma cor e deixe a magia acontecer"
+
+update the cards to display 3 instead of 4 on each line update the texts with the following:
+
+
+**Product 1:**
+
+- Name: "Banimento"
+- Benefit: "Limpa energias pesadas e oferece proteção"
+- CORES: BRANCA/ PRETA / MARROM
+- Herbs: "Endro, Arruda"
+- Button: "Consultar"
+
+
+**Product 2:**
+
+- Name: "Conectar"
+- Benefit: "Clareia a mente e melhora a concentração"
+- CORES: BRANCA/ LILÁS/ AMARELA / AZUL
+- Herbs: "Pitanga, Tomilho"
+- Button: "Consultar"
+
+
+**Product 3:**
+
+- Name: "Paixão"
+- Benefit: "Desperta o coração e atrai o amor"
+- CORES: BRANCA/ ROSA
+- Herbs: "Lavanda","Artemísia"
+- Button: "Consultar"
+
+-Section CTA: "Ver Toda Coleção" (Clicking it adds a new line showing 3 more products)
+
+
+**Product 4:**
+
+- Name: "Esperança"
+- Benefit: "Abre caminhos e traz esperança"
+- CORES: BRANCA / AMARELA/ VERDE
+- Herbs: "Calêndula, Dente-de-Leão"
+- Button: "Consultar"
+
+**Product 5:**
+
+- Name: "Restaurar"
+- Benefit: "Acalma a alma e restaura energias"
+- CORES: BRANCA/ AZUL 
+- Herbs: "Cipreste, Pinheiro"
+- Button: "Consultar"
+
+**Product 6:**
+
+- Name: "Purificar"
+- Benefit: "Renova energias e purifica ambientes"
+- CORES: BRANCA/ LILÁS / PRETA  
+- Herbs: "Hibisco, Sal Vulcânico"
+- Button: "Consultar"
+
+
+
+## **Benefits Section**[Keep the same]
+
+
+## **Gift Collections Section** [REMOVE THIS SECTION]
+
+
+## **Color Meanings Section**[Keep the same]
+
+
+Add ## **Herbs Section**
+
+- Section title: "Propriedades das ervas"
+- Description: "Cada erva em nossas velas foi cuidadosamente selecionada por seus benefícios específicos."
+
+lavanda
+atrai amor, cura e harmonia. potencializa rituais diversos
+
+alecrim
+proteção, purificação e cura. equilibra energias física e mental
+
+arruda
+elimina larvas astrais e energias densas. purifica ambientes
+
+endro
+proteção contra encantamentos. atrai sorte e amor
+
+pitanga
+energia movimentadora. elimina comodismo e estagnação
+
+tomilho
+atrai amor e saúde. melhora clareza mental e facilita diálogos
+
+artemísia
+desenvolve intuição. conexão com o sagrado feminino
+
+cipreste
+combate tristeza e mágoas. ajuda no reequilíbrio mental
+
+hibisco
+purifica coração, mente e alma. elimina vícios e manias
+
+calêndula
+flor da riqueza. traz proteção, sorte financeira e prosperidade
+
+dente de leão
+representa esperança e liberdade. abertura de caminhos
+
+sal vulcânico
+combate energias densas. elimina pensamentos negativos
+
+
+
+
+## **Instagram Section**[Keep the same]
+
+
+## **Footer**
+
+- Brand story: "Feitas com amor para aquecer seu lar e sua alma"
+- Primary button: "WhatsApp"
+- Secondary button: "Instagram"
+- Copyright: "© 2025 Velas de Evora. Todos os direitos reservados."
+
+
+## **Floating Elements**
+
+- Floating WhatsApp button (no text, just icon, remove the slashing effect)
+- Back to top button (no text, just icon)
+
+
+## **WhatsApp Messages**[Keep the same]
