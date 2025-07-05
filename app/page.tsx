@@ -567,7 +567,7 @@ export default function VelasDeEvora() {
                   <Button
                     onClick={() =>
                       openWhatsApp(
-                        `Olá! Gostaria de saber mais sobre a ${product.name}.`,
+                        `Olá! Gostaria de saber mais sobre a vela ${product.name}.`,
                       )
                     }
                     className="w-full bg-stone-800 hover:bg-stone-900 text-white py-2 font-medium transition-all duration-200 hover:shadow-md"
@@ -618,7 +618,7 @@ export default function VelasDeEvora() {
                     <Button
                       onClick={() =>
                         openWhatsApp(
-                          `Olá! Gostaria de saber mais sobre a ${product.name}.`,
+                          `Olá! Gostaria de saber mais sobre a vela ${product.name}.`,
                         )
                       }
                       className="w-full bg-stone-800 hover:bg-stone-900 text-white py-2 font-medium transition-all duration-200 hover:shadow-md"
