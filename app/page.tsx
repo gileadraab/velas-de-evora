@@ -78,7 +78,7 @@ export default function VelasDeEvora() {
     message = "Olá! Gostaria de saber mais sobre as velas de Evora.",
   ) => {
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/5511999999999?text=${encodedMessage}`, "_blank");
+    window.open(`https://wa.me/554185021635?text=${encodedMessage}`, "_blank");
   };
 
   // Navigation menu items
