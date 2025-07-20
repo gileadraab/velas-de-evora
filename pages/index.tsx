@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   MessageCircle,
   Heart,
@@ -20,6 +19,7 @@ import type { GetStaticProps } from "next";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Instagram from "@/components/sections/Instagram";
+import Products from "@/components/sections/Products";
 
 // Instagram post type definition
 interface InstagramPost {
@@ -310,136 +310,17 @@ export default function VelasDeEvora({
         scrollToSection={scrollToSection}
         openWhatsApp={openWhatsApp}
       />
+
       {/* Hero Section */}
       <Hero onCta={() => scrollToSection("products")} />
+
       {/* Products Section */}
-      <section id="products" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-800 mb-4 sm:mb-6 font-light">
-              Cada vela, uma intenção
-            </h2>
-            <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-light">
-              Descubra nossa coleção de velas artesanais, cada uma criada com
-              propósito e energia específica
-            </p>
-          </div>
+      <Products
+        featuredProducts={featuredProducts}
+        additionalProducts={additionalProducts}
+        openWhatsApp={openWhatsApp}
+      />
 
-          {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
-            {/* Featured Products */}
-            {featuredProducts.map((product, index) => (
-              <div key={index} className="group">
-                <div className="relative mb-6 overflow-hidden rounded-lg">
-                  <Image
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    width={400}
-                    height={400}
-                    className="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-xl sm:text-2xl font-serif text-stone-800 font-light">
-                    {product.name}
-                  </h3>
-                  <p className="text-stone-600 font-light">{product.benefit}</p>
-                  <div className="flex gap-2">
-                    {product.colors.map((color, colorIndex) => (
-                      <div
-                        key={colorIndex}
-                        className="w-4 h-4 rounded-full border border-stone-400"
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
-                  </div>
-                  <Badge
-                    variant="outline"
-                    className="text-stone-600 border-stone-300 bg-transparent font-light"
-                  >
-                    <Leaf className="w-3 h-3 mr-1" />
-                    {product.herbs}
-                  </Badge>
-                  <Button
-                    onClick={() =>
-                      openWhatsApp(
-                        `Olá! Gostaria de saber mais sobre a vela ${product.name}.`,
-                      )
-                    }
-                    className="w-full bg-stone-800 hover:bg-stone-900 text-white py-2 font-medium transition-all duration-200 hover:shadow-md"
-                  >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Consultar
-                  </Button>
-                </div>
-              </div>
-            ))}
-
-            {/* Additional Products (shown when expanded) */}
-            {showAllProducts &&
-              additionalProducts.map((product, index) => (
-                <div key={index} className="group">
-                  <div className="relative mb-6 overflow-hidden rounded-lg">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={400}
-                      height={400}
-                      className="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-xl sm:text-2xl font-serif text-stone-800 font-light">
-                      {product.name}
-                    </h3>
-                    <p className="text-stone-600 font-light">
-                      {product.benefit}
-                    </p>
-                    <div className="flex gap-2">
-                      {product.colors.map((color, colorIndex) => (
-                        <div
-                          key={colorIndex}
-                          className="w-4 h-4 rounded-full border border-stone-400"
-                          style={{ backgroundColor: color }}
-                        />
-                      ))}
-                    </div>
-                    <Badge
-                      variant="outline"
-                      className="text-stone-600 border-stone-300 bg-transparent font-light"
-                    >
-                      <Leaf className="w-3 h-3 mr-1" />
-                      {product.herbs}
-                    </Badge>
-                    <Button
-                      onClick={() =>
-                        openWhatsApp(
-                          `Olá! Gostaria de saber mais sobre a vela ${product.name}.`,
-                        )
-                      }
-                      className="w-full bg-stone-800 hover:bg-stone-900 text-white py-2 font-medium transition-all duration-200 hover:shadow-md"
-                    >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Consultar
-                    </Button>
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          {/* Show More/Less Toggle */}
-          <div className="text-center mt-12 sm:mt-16">
-            <Button
-              onClick={() => setShowAllProducts(!showAllProducts)}
-              className="bg-stone-800 hover:bg-stone-900 text-white px-8 py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
-              size="lg"
-            >
-              {showAllProducts ? "Ver Menos" : "Ver Toda Coleção"}
-            </Button>
-          </div>
-        </div>
-      </section>
       {/* Benefits Section */}
       <section
         id="benefits"
@@ -471,6 +352,7 @@ export default function VelasDeEvora({
           </div>
         </div>
       </section>
+
       {/* Color Meanings Section */}
       <section
         id="colors"
@@ -512,6 +394,7 @@ export default function VelasDeEvora({
           </div>
         </div>
       </section>
+
       {/* Herbs Section */}
       <section id="herbs" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -544,6 +427,7 @@ export default function VelasDeEvora({
           </div>
         </div>
       </section>
+
       {/* Personalization Section */}
       <section
         id="personalize"
@@ -573,8 +457,11 @@ export default function VelasDeEvora({
           </Button>
         </div>
       </section>
+
       {/* Instagram Section with Static Data */}
-      <Instagram instagramPosts={instagramPosts} />;{/* Footer */}
+      <Instagram instagramPosts={instagramPosts} />
+
+      {/* Footer */}
       <footer className="bg-stone-800 text-stone-200 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Footer Logo */}
@@ -718,6 +605,7 @@ export default function VelasDeEvora({
           </div>
         </div>
       </footer>
+
       {/* Floating WhatsApp Button */}
       <Button
         onClick={() => openWhatsApp()}
@@ -726,6 +614,7 @@ export default function VelasDeEvora({
       >
         <MessageCircle className="w-6 h-6" />
       </Button>
+
       {/* Back to Top Button */}
       {showBackToTop && (
         <Button
