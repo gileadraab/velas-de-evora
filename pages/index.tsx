@@ -159,7 +159,7 @@ export default function VelasDeEvora({
                 className="bg-white rounded-lg p-6 sm:p-8 border border-stone-200 hover:shadow-md transition-shadow duration-200"
               >
                 <div
-                  className={`w-8 h-8 ${item.color} rounded-full mb-4`}
+                  className={`w-8 h-8 rounded-full mb-4 ${item.circleClass}`}
                 ></div>
                 <h3 className="text-lg sm:text-xl font-serif text-stone-800 mb-3 font-light">
                   {item.name}
