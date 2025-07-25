@@ -1,26 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  MessageCircle,
-  Heart,
-  Clock,
-  Gift,
-  Leaf,
-  ChevronDown,
-  ArrowUp,
-  Menu,
-  X,
-  RefreshCw,
-} from "lucide-react";
+import { MessageCircle, ArrowUp } from "lucide-react";
 import type { GetStaticProps } from "next";
+import {
+  benefits,
+  colorMeanings,
+  herbs,
+  featuredProducts,
+  additionalProducts,
+} from "@/data";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Instagram from "@/components/sections/Instagram";
 import Products from "@/components/sections/Products";
 import Benefits from "@/components/sections/Benefits";
+import Customization from "@/components/sections/Customization";
 
 // Instagram post type definition
 interface InstagramPost {
@@ -113,193 +109,6 @@ export default function VelasDeEvora({
     { id: "herbs", label: "Ervas" },
     { id: "personalize", label: "Personalizar" },
     { id: "instagram", label: "Instagram" },
-  ];
-
-  // Product catalog data
-  const featuredProducts = [
-    {
-      name: "Banimento",
-      benefit: "Limpa energias pesadas e oferece proteção",
-      herbs: "Endro, Arruda",
-      colors: ["#FFFFFF", "#000000", "#8B4513"],
-      image: "images/banimento.png",
-    },
-    {
-      name: "Conectar",
-      benefit: "Clareia a mente e melhora a concentração",
-      herbs: "Pitanga, Tomilho",
-      colors: ["#FFFFFF", "#DDA0DD", "#FFFF00", "#0000FF"],
-      image: "images/conectar.png",
-    },
-    {
-      name: "Paixão",
-      benefit: "Desperta o coração e atrai o amor",
-      herbs: "Lavanda, Artemísia",
-      colors: ["#FFFFFF", "#FFC0CB"],
-      image: "images/paixao.png",
-    },
-  ];
-
-  const additionalProducts = [
-    {
-      name: "Esperança",
-      benefit: "Abre caminhos e traz esperança",
-      herbs: "Calêndula, Dente-de-Leão",
-      colors: ["#FFFFFF", "#FFFF00", "#008000"],
-      image: "/images/esperanca.png",
-    },
-    {
-      name: "Restaurar",
-      benefit: "Acalma a alma e restaura energias",
-      herbs: "Cipreste, Pinheiro",
-      colors: ["#FFFFFF", "#0000FF"],
-      image: "/images/restaurar.png",
-    },
-    {
-      name: "Purificar",
-      benefit: "Renova energias e purifica ambientes",
-      herbs: "Hibisco, Sal Vulcânico",
-      colors: ["#FFFFFF", "#DDA0DD", "#000000"],
-      image: "/images/purificar.png",
-    },
-  ];
-
-  // Educational content about herbs
-  const herbs = [
-    {
-      name: "Lavanda",
-      description: "Atrai amor, cura e harmonia. Potencializa rituais diversos",
-    },
-    {
-      name: "Alecrim",
-      description:
-        "Proteção, purificação e cura. Equilibra energias física e mental",
-    },
-    {
-      name: "Arruda",
-      description:
-        "Elimina larvas astrais e energias densas. Purifica ambientes",
-    },
-    {
-      name: "Endro",
-      description: "Proteção contra encantamentos. Atrai sorte e amor",
-    },
-    {
-      name: "Pitanga",
-      description: "Energia movimentadora. Elimina comodismo e estagnação",
-    },
-    {
-      name: "Tomilho",
-      description:
-        "Atrai amor e saúde. Melhora clareza mental e facilita diálogos",
-    },
-    {
-      name: "Artemísia",
-      description: "Desenvolve intuição. Conexão com o sagrado feminino",
-    },
-    {
-      name: "Cipreste",
-      description: "Combate tristeza e mágoas. Ajuda no reequilíbrio mental",
-    },
-    {
-      name: "Hibisco",
-      description: "Purifica coração, mente e alma. Elimina vícios e manias",
-    },
-    {
-      name: "Calêndula",
-      description:
-        "Flor da riqueza. Traz proteção, sorte financeira e prosperidade",
-    },
-    {
-      name: "Dente de Leão",
-      description: "Representa esperança e liberdade. Abertura de caminhos",
-    },
-    {
-      name: "Sal Vulcânico",
-      description: "Combate energias densas. Elimina pensamentos negativos",
-    },
-  ];
-
-  // Benefits/features of the candles
-  const benefits = [
-    {
-      icon: <Leaf className="w-6 h-6" />,
-      title: "Ingredientes Naturais",
-      description: "Ervas selecionadas e cera de soja pura",
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "24h de Queima",
-      description: "Longa duração para momentos especiais",
-    },
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Cromoterapia",
-      description: "Cores que harmonizam corpo e mente",
-    },
-    {
-      icon: <Gift className="w-6 h-6" />,
-      title: "Presentes Únicos",
-      description: "Perfeitas para ocasiões especiais",
-    },
-  ];
-
-  // Color meanings for chromotherapy
-  const colorMeanings = [
-    {
-      color: "bg-purple-400",
-      name: "Roxo",
-      meaning: "Serenidade",
-      description: "Promove relaxamento e paz interior",
-    },
-    {
-      color: "bg-green-400",
-      name: "Verde",
-      meaning: "Energia",
-      description: "Estimula vitalidade e renovação",
-    },
-    {
-      color: "bg-red-400",
-      name: "Vermelho",
-      meaning: "Paixão",
-      description: "Desperta amor e força interior",
-    },
-    {
-      color: "bg-blue-400",
-      name: "Azul",
-      meaning: "Tranquilidade",
-      description: "Acalma a mente e promove clareza",
-    },
-    {
-      color: "bg-yellow-400",
-      name: "Amarelo",
-      meaning: "Alegria",
-      description: "Estimula criatividade e otimismo",
-    },
-    {
-      color: "bg-stone-100 border-2 border-stone-300",
-      name: "Branco",
-      meaning: "Purificação",
-      description: "Limpa energias e promove recomeços",
-    },
-    {
-      color: "bg-orange-400",
-      name: "Laranja",
-      meaning: "Criatividade",
-      description: "Estimula energia criativa e entusiasmo",
-    },
-    {
-      color: "bg-amber-800",
-      name: "Marrom",
-      meaning: "Estabilidade",
-      description: "Promove conexão com a terra e estabilidade",
-    },
-    {
-      color: "bg-black",
-      name: "Preto",
-      meaning: "Proteção",
-      description: "Absorve energias negativas e oferece proteção",
-    },
   ];
 
   return (
@@ -401,34 +210,7 @@ export default function VelasDeEvora({
       </section>
 
       {/* Personalization Section */}
-      <section
-        id="personalize"
-        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-100"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-800 mb-4 sm:mb-6 font-light">
-            Crie a sua
-            <span className="block text-stone-700 font-script text-4xl sm:text-5xl md:text-6xl font-normal">
-              Magia
-            </span>
-          </h2>
-          <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-light mb-8 sm:mb-12">
-            Escolha duas ervas, uma cor e deixe a magia acontecer
-          </p>
-          <Button
-            onClick={() =>
-              openWhatsApp(
-                "Olá! Gostaria de criar uma vela personalizada. Podem me ajudar?",
-              )
-            }
-            className="bg-stone-800 hover:bg-stone-900 text-white px-8 py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
-            size="lg"
-          >
-            <MessageCircle className="w-5 h-5 mr-2" />
-            Entre em contato
-          </Button>
-        </div>
-      </section>
+      <Customization openWhatsApp={openWhatsApp} />
 
       {/* Instagram Section with Static Data */}
       <Instagram instagramPosts={instagramPosts} />
@@ -659,6 +441,5 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
       instagramPosts,
       instagramError,
     },
-    // Revalidate every hour (3600 seconds) - you can adjust this
   };
 };
