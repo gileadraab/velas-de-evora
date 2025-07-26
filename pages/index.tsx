@@ -13,6 +13,7 @@ import Benefits from "@/components/sections/Benefits";
 import Customization from "@/components/sections/Customization";
 import Herbs from "@/components/sections/Herbs";
 import Colors from "@/components/sections/Colors";
+import Footer from "@/components/sections/Footer";
 
 // Instagram post type definition
 interface InstagramPost {
@@ -143,149 +144,7 @@ export default function VelasDeEvora({
       <Instagram instagramPosts={instagramPosts} />
 
       {/* Footer */}
-      <footer className="bg-stone-800 text-stone-200 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Footer Logo */}
-          <div className="mb-8 sm:mb-12">
-            <div className="flex flex-col items-center mb-6 sm:mb-8">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 text-stone-200">
-                <svg
-                  viewBox="0 0 2666.6667 2666.6667"
-                  className="w-full h-full"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g transform="matrix(0.13333333,0,0,-0.13333333,0,2666.6667)">
-                    <path
-                      d="m 6491.09,3893.2 v 8133.1"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 12708.9,9869.8 v 2156.5"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 6491.08,3893.2 c 0,-268.2 993.4,-493.5 2337,-556.9"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 8460.39,12561 c -1153.18,-83.9 -1969.3,-291.8 -1969.3,-534.7 0,-258 919.81,-476.1 2186.25,-548.8 584.69,-34.1 1251.25,-34.6 1845.36,0 1266.4,72.7 2186.2,290.8 2186.2,548.8 0,242.9 -816.1,450.8 -1969.5,534.7"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 9599.93,12146 v 1075.6"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 9539.71,13221.6 c 562.29,0 1168.69,561.9 1168.59,1154.6 6.9,1251.5 -1168.59,2305.4 -1168.59,2305.4 -2.86,-7.3 15.4,-792.5 -625.35,-1346.9 -327.72,-283.5 -491.03,-720.6 -396.1,-1150.5 114.81,-520 499.57,-962.6 1021.45,-962.6 z"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 13711.7,5798 c 30.5,192.5 46.4,391.2 46.4,594.4 0,1034.2 -411.8,1952.8 -1049.3,2531.9 -637.4,-579.4 -1049.1,-1497.7 -1049.1,-2531.9 0,-203.2 15.9,-401.9 46.4,-594.4"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 15805.6,6451.6 c 122.3,335.9 176.6,681 160.7,1011.9 -547.5,26.3 -1133.8,-139.6 -1653.4,-488"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 11104.9,6975.5 c -519.6,348.4 -1105.85,514.3 -1653.44,488 -15.89,-330.9 38.42,-676 160.79,-1011.9"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="m 10688.6,5535.6 c 971.7,-353.7 1693.9,-1054.6 2020.3,-1851.7 -762.2,-400.9 -1766.2,-473.7 -2737.97,-120 -971.72,353.6 -1694.06,1054.8 -2020.26,1851.9 762.4,400.8 1766.2,473.5 2737.93,119.8 z"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                    <path
-                      d="M 14729.2,5535.6 C 13757.5,5181.9 13035.3,4481 12708.9,3683.9 c 762.2,-400.9 1766.3,-473.7 2738,-120 971.7,353.6 1694.1,1054.8 2020.3,1851.9 -762.4,400.8 -1766.2,473.5 -2738,119.8 z"
-                      stroke="currentColor"
-                      strokeWidth="400"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-                </svg>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-serif text-stone-200 font-light px-[29px] my-[-10px]">
-                Velas de
-                <span className="block text-stone-300 font-script text-3xl sm:text-4xl font-normal">
-                  Evora
-                </span>
-              </h2>
-            </div>
-          </div>
-
-          {/* Footer Message */}
-          <p className="text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto font-light">
-            Feitas com amor para aquecer seu lar e sua alma
-          </p>
-
-          {/* Footer Contact Button */}
-          <div className="flex justify-center items-center mb-8 sm:mb-12">
-            <Button
-              onClick={() =>
-                openWhatsApp(
-                  "Olá! Gostaria de conhecer mais sobre as Velas de Evora.",
-                )
-              }
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105"
-              size="lg"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              WhatsApp
-            </Button>
-          </div>
-
-          {/* Copyright */}
-          <div className="border-t border-stone-700 pt-6 sm:pt-8">
-            <p className="text-stone-400 font-light text-sm sm:text-base">
-              © {new Date().getFullYear()} Velas de Evora. Todos os direitos
-              reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer openWhatsApp={openWhatsApp} />
 
       {/* Floating WhatsApp Button */}
       <Button
