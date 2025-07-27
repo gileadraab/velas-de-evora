@@ -2,12 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { openWhatsApp } from "@/lib/utils";
 
-interface CustomizationProps {
-  openWhatsApp: (message: string) => void;
-}
-
-export default function Customization({ openWhatsApp }: CustomizationProps) {
+export default function Customization() {
   return (
     <section
       id="personalize"

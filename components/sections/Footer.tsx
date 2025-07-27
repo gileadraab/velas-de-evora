@@ -2,12 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { openWhatsApp } from "@/lib/utils";
 
-interface FooterProps {
-  openWhatsApp: (message: string) => void;
-}
-
-export default function Footer({ openWhatsApp }: FooterProps) {
+export default function Footer() {
   return (
     <footer className="bg-stone-800 text-stone-200 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
