@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Leaf } from "lucide-react";
+import { openWhatsApp } from "@/lib/utils";
+import { featuredProducts, additionalProducts } from "@/data";
 
 interface Product {
   name: string;
@@ -17,14 +19,9 @@ interface Product {
 interface ProductsProps {
   featuredProducts: Product[];
   additionalProducts: Product[];
-  openWhatsApp: (message: string) => void;
 }
 
-export default function Products({
-  featuredProducts,
-  additionalProducts,
-  openWhatsApp,
-}: ProductsProps) {
+export default function Products() {
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   return (

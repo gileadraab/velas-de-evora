@@ -20,7 +20,6 @@ const config: Config = {
     "bg-stone-100",
     "border-border",
     "border-2",
-    "border-stone-300",
     "bg-black",
   ],
   prefix: "",

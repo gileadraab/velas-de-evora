@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowUp } from "lucide-react";
 import type { GetStaticProps } from "next";
-import { benefits, featuredProducts, additionalProducts } from "@/data";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import Instagram from "@/components/sections/Instagram";
@@ -14,6 +13,8 @@ import Customization from "@/components/sections/Customization";
 import Herbs from "@/components/sections/Herbs";
 import Colors from "@/components/sections/Colors";
 import Footer from "@/components/sections/Footer";
+import { openWhatsApp, scrollToTop } from "@/lib/utils";
+import { navigationItems } from "@/data/navigationItems";
 
 // Instagram post type definition
 interface InstagramPost {
@@ -38,7 +39,6 @@ export default function VelasDeEvora({
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [showAllProducts, setShowAllProducts] = useState(false);
 
   // Scroll event handler for navigation and back-to-top button
   useEffect(() => {
@@ -46,15 +46,7 @@ export default function VelasDeEvora({
       setShowBackToTop(window.scrollY > 500);
 
       // Update active navigation section based on scroll position
-      const sections = [
-        "home",
-        "products",
-        "benefits",
-        "colors",
-        "herbs",
-        "personalize",
-        "instagram",
-      ];
+      const sections = navigationItems.map((item) => item.id);
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -85,51 +77,19 @@ export default function VelasDeEvora({
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  // WhatsApp integration
-  const openWhatsApp = (
-    message = "Olá! Gostaria de saber mais sobre as velas de Evora.",
-  ) => {
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/554185021635?text=${encodedMessage}`, "_blank");
-  };
-
-  // Navigation menu items
-  const navigationItems = [
-    { id: "home", label: "Início" },
-    { id: "products", label: "Produtos" },
-    { id: "benefits", label: "Benefícios" },
-    { id: "colors", label: "Cores" },
-    { id: "herbs", label: "Ervas" },
-    { id: "personalize", label: "Personalizar" },
-    { id: "instagram", label: "Instagram" },
-  ];
-
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Fixed Navigation Header */}
-      <Nav
-        navigationItems={navigationItems}
-        activeSection={activeSection}
-        scrollToSection={scrollToSection}
-        openWhatsApp={openWhatsApp}
-      />
+      <Nav activeSection={activeSection} scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
       <Hero onCta={() => scrollToSection("products")} />
 
       {/* Products Section */}
-      <Products
-        featuredProducts={featuredProducts}
-        additionalProducts={additionalProducts}
-        openWhatsApp={openWhatsApp}
-      />
+      <Products />
 
       {/* Benefits Section */}
-      <Benefits benefits={benefits} />
+      <Benefits />
 
       {/* Color Meanings Section */}
       <Colors />
@@ -138,13 +98,13 @@ export default function VelasDeEvora({
       <Herbs />
 
       {/* Personalization Section */}
-      <Customization openWhatsApp={openWhatsApp} />
+      <Customization />
 
       {/* Instagram Section with Static Data */}
       <Instagram instagramPosts={instagramPosts} />
 
       {/* Footer */}
-      <Footer openWhatsApp={openWhatsApp} />
+      <Footer />
 
       {/* Floating WhatsApp Button */}
       <Button
@@ -221,7 +181,6 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
           : "Failed to load Instagram posts";
     }
   }
-
   return {
     props: {
       instagramPosts,

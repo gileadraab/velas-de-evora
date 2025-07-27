@@ -1,17 +1,8 @@
 "use client";
 import { ReactElement } from "react";
+import { benefits } from "@/data";
 
-interface Benefit {
-  icon: ReactElement;
-  title: string;
-  description: string;
-}
-
-interface BenefitsProps {
-  benefits: Benefit[];
-}
-
-export default function Benefits({ benefits }: BenefitsProps) {
+export default function Benefits() {
   return (
     <section
       id="benefits"

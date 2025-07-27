@@ -3,22 +3,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X } from "lucide-react";
-
-type NavItem = { id: string; label: string };
+import { navigationItems } from "@/data";
+import { openWhatsApp } from "@/lib/utils";
 
 type NavProps = {
-  navigationItems: NavItem[];
   activeSection: string;
   scrollToSection: (id: string) => void;
-  openWhatsApp: () => void;
 };
 
-export default function Nav({
-  navigationItems,
-  activeSection,
-  scrollToSection,
-  openWhatsApp,
-}: NavProps) {
+export default function Nav({ activeSection, scrollToSection }: NavProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
